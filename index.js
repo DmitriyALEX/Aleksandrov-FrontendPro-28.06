@@ -12,29 +12,31 @@
 
 
 //4. Mathematical operations 
-const MathAction = () => {
+const mathAction = () => {
    const condition1 = Number(prompt("Enter First Number"))
    const condition2 = Number(prompt("Enter Second Number"))
-   alert(condition1 + condition2) 
-   alert(condition1 - condition2)
-   alert(condition1 * condition2) 
-   alert(condition1 / condition2)
+   alert(`
+      ${condition1} + ${condition2} = ${condition1 + condition2}
+      ${condition1} - ${condition2} = ${condition1 - condition2}
+      ${condition1} * ${condition2} = ${condition1 * condition2}
+      ${condition1} / ${condition2} = ${condition1 / condition2}
+   `)
    }
-MathAction()
+mathAction()
 
 
 //5. Average value (Середнє значення)
-const AverageValue = () => {
+const averageValue = () => {
    const value1 = Number(prompt("Enter First Number"))
    const value2 = Number(prompt("Enter Second Number"))
    const value3 = Number(prompt("Enter third Number"))
    alert((value1 + value2 + value3) / 3)
 }
-AverageValue()
+averageValue()
 
 
 // 6. Calculator (Kалькулятор) 
-const Calculator = () => {
+const calculator = () => {
    const userAction = prompt("Enter, what do you want: add, sub, mult, div")
    const firstValue =  Number(prompt("Enter First Number"))
    const secondValue = Number(prompt("Enter Second Number"))
@@ -56,8 +58,6 @@ const Calculator = () => {
       alert(`${firstValue} / ${secondValue} = ${divValue}`)
    }   
 }
-Calculator()
-
-
+calculator()
 
 
