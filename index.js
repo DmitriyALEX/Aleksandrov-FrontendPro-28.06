@@ -62,25 +62,37 @@
 
 
 // 7. Numbers and strings (Числа та рядки)
-const numberString = () => {
-   const string1 = prompt("Enter your string")
-   const string2 = prompt("Enter your string")
-   const string3 = prompt("Enter your string")
+// const numberString = () => {
+//    const string1 = prompt("Enter your string")
+//    const string2 = prompt("Enter your string")
+//    const string3 = prompt("Enter your string")
 
-   alert(`${string1 + string2 + string3}`)
-}
-numberString()
+//    alert(`${string1 + string2 + string3}`)
+// }
+// numberString()
 
 // 7.1  Five Numbers (вивести п'ятизначне число з пробілами)
-function fiveNumbers () {
-   const numbers = prompt('Enter five numbers')
-   const arr = numbers.split('')
-   alert(arr.join(' '))
-}
-fiveNumbers()
+// function fiveNumbers () {
+//    const numbers = prompt('Enter five numbers')
+//    const arr = numbers.split('')
+//    alert(arr.join(' '))
+// }
+// fiveNumbers()
+
+// 9. Array (Масив)
+const arr = (prompt('Make Array of Numbers').split(''))
+   console.log(arr)
+
+const sortArr = arr.sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0))
+   console.log(sortArr)
+
+const removeFromArr = arr.slice(3, 4)
+   console.log(removeFromArr)
 
 
+ 
 
+ 
 
 
 
