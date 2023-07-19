@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		const year = prompt("Напишіть свій рік народження");
+		const city = prompt("В якому місті ви живете: Київ, Вашингтон, Лондон або в іншому?");
+		const sports = prompt("Ваш улюлений вид спорту футбол, баскетбол або бокс?");
+
+		const Result = () => {
+			const cityResult = () => {
+				if (city === "Київ") {
+					return ('Ви живете в столиці України')
+				}
+		        if (city === "Вашингтон") {
+		            return ('Ви живете в столиці Сполучених Штатів Америки')
+		        }
+		        if (city === "Лондон") {
+					return ('Ви живете в столиці Англії')
+		        } 
+		            return (`Ви живете в місті ${city}`)
+			}
+			cityResult()
+
+			const sportResult = () => {
+				if(sports === "футбол") {
+		            return ('Круто! Хочеш стати як Кріштіану Роналду?')
+			    }
+			    if(sports === "баскетбол") {
+			        return ('Круто! Хочеш стати як Майкл Джордан?')
+			    }
+			    if(sports === "бокс") {
+			        return ('Круто! Хочеш стати як Майк Тайсон?')
+			    } 
+			}
+			sportResult()
+
+			const emptyString = () => {
+				if (year === (null) || (year === (''))) {
+					return ('Шкода, що Ви не захотіли ввести свій рік народження')
+				}
+				if (city === (null) || (city === (''))) {
+					return ('Шкода, що Ви не захотіли ввести місто в якому ви живете')
+				}
+				if (sports === (null) || (sports === (''))) {
+					return ('Шкода, що Ви не захотіли ввести свій улюблений вид спорту')
+				}
+				if ((year === (null) || (year === (''))) ||
+					(city === (null) || (city === (''))) ||
+					(sports === (null) || (sports === ('')))
+				   ) {
+						return ('Шкода, що Ви не захотіли ввести місто в якому живете, свій рік народження та вид спорту')
+					}
+			}
+			alert(emptyString()) // як зробити щоб цей alert не викликався якщо cityResult sportResult спрацювали ? 
+
+
+
+			//як зробити що б цей alert не викликався якщо emptyString спрацювала?
+			alert(`                          
+				- ${cityResult()}
+				- Твій рік народження ${year} 
+				- ${sportResult()}`);
+		}
+
+	Result()
+
+	</script>
+</body>
+</html>
