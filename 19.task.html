@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		class Human {
+			constructor(name, male) {
+				this.name = name;
+				this.male = male;
+			}
+		} 
+		const addNewPeople = new Human('Dmytro', 'Male')
+		const addNewPeople1 = new Human('Kate', 'Female') 
+
+		class Flat {
+			peoples = []; //масив жителів
+			addPeople(people) { //метод  приймає екземпляр класу Людина, та додає до масиву жителів.
+				this.people = people
+				return this.peoples.push(this.people)
+			}
+		}
+
+		const flat = new Flat()
+		const flat1 = new Flat()
+
+		flat.addPeople(addNewPeople)
+		flat1.addPeople(addNewPeople1)
+		
+		class House {
+			flats = []
+			constructor(maxFlats) {
+				this.maxFlats = maxFlats
+			}
+			addFlat(flat) {
+				if( this.flats < this.maxFlats) {
+					return this.flats.push(this.flat) 
+				} else console.log('house full')
+			}
+		}
+
+		const house = new House(flat)
+		const house1 = new House(flat1)
+		house.addFlat()
+		house1.addFlat()
+	</script>
+</body>
+</html>
