@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function pow(num, degree) {
+			if(degree === 1) {
+			 	return num
+			} return num * pow(num, degree - 1)
+		}
+		const res = pow(2, 4)
+		console.log(res)
+
+//ПОЯСНЕННЯ ДО РІШЕННЯ ЗАДАЧІ
+	//Якщо умова degree === 1 не виконується тоді 
+	// виконується num * pow(num, degree - 1)
+	// і так поки не буде degree === 1
+	//---------------------------
+//ЦЕ РІШЕННЯ ДОРІВНЮЄ МАТЕМАТИЧНІЙ ФОРМУЛІ:
+	// num * pow(num, degree - 1) === x в ступені(n) = x * x ступінь (n-1)
+	//---------------------------
+//іТЕРАЦІЇ ЯКІ ВИКОНУЮТЬСЯ
+	// pow(2, 4) = 2 * pow(2, 3)
+	// pow(2, 3) = 2 * pow(2, 2)
+	// pow(2, 2) = 2 * pow(2, 1)
+	// pow(2, 1) = 2
+	</script>
+</body>
+</html>
