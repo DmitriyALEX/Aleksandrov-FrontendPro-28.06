@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		class Hamburger {	
+			topping = []
+			constructor(size, stuffing) {
+				this.size = size
+				this.stuffing = stuffing	
+			}
+			static get SIZE_SMALL() {
+				return({ price: 50, calories: 20})
+			}
+			static get SIZE_BIG() {
+				return ({ price: 100, calories: 40 })
+			}
+			static get STUFFING_CHEESE() {
+			 	return ({price: 10,	calories: 20})
+			}
+			static get STUFFING_SALAD() {
+				return ({ price: 20, calories: 5 })
+			} 
+			static get STUFFING_POTATOES() {
+				return ({ price: 15, calories: 10})
+			}
+			static get TOPPING_SAUCE() {
+				return ({price: 15, calories: 0})
+			} 
+			static get TOPPING_MAYO() {
+				return({price: 20, calories: 5})
+			} 
+			addTopping(el) {
+ 				this.topping.push(el)
+ 				return this
+			}
+
+			calculate () {
+				const calories_sum =  this.topping.reduce((i, el) => 
+					i + el.calories, 0)
+				return this.size.calories + this.stuffing.calories + calories_sum
+			}
+
+			calculatePrice() {
+				const calories_price =  this.topping.reduce((i, el) => 
+					i + el.price, 0)
+				return this.size.price + this.stuffing.price + calories_price
+			}
+		}
+
+		// маленький гамбургер з начинкою з сиру
+		var hamburger = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_CHEESE)
+	
+		// добавка з майонезу
+ 		hamburger.addTopping(Hamburger.TOPPING_MAYO);
+ 
+		 // запитаємо скільки там калорій
+		console.log('Calories:' + hamburger.calculate());
+ 
+ 		// скільки коштує
+ 		console.log('Price:' + hamburger.calculatePrice())
+ 
+ 		// я тут передумав і вирішив додати ще приправу
+ 		hamburger.addTopping(Hamburger.TOPPING_SAUCE);
+ 
+ 		// А скільки тепер коштує?
+ 		console.log('Price with sauce:' + hamburger.calculatePrice())
+	</script>
+</body>
+</html>
