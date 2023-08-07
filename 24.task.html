@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		class Student {
+			visit = []
+			constructor(name, surname, year, score) {
+				this.name= name
+				this.surname = surname
+				this.year = year
+				this.score = score	
+			}	
+			getAge() {
+				let currentYear = new Date().getFullYear();
+				console.log(currentYear - this.year)
+			}
+			meanValue() {
+				//cередній бал
+				console.log(this.score.reduce((a, b) => (a + b) / this.score.length))
+			}
+			present() {	
+				if(this.visit.length <= 25) {
+					this.visit.push(true)
+					return this
+					console.log(this.visit.length)
+				} else {
+					console.log('array full')
+				}
+			}
+			absent() {
+				if(this.visit.length <= 25) {
+					this.visit.push(false)
+					return this
+				} else {
+					console.log('array full')
+				}
+			}
+			summary() {
+				//середнє відвідування більше 0.9
+				//0.9 -- 90% -- це від 25 це  22.5
+				//якщо arrTrue.length > 22.5 ---> "Молодець!"
+				const count = (this.score.reduce((a, b) => (a + b)))
+				const arrTrue = []
+
+				for(let value of this.visit) {
+					if (value === true) {
+						arrTrue.push(value)
+					}
+				}
+
+				if((count > 90) && (arrTrue.length > 22.5)) {
+					console.log("Молодець!")
+				}  
+				if((count >= 90) || (arrTrue.length > 22.5)) {
+					console.log("Добре, але можна краще")
+				}  
+				if ((count > 90) && (arrTrue.length > 22.5)) {
+					console.log("Редиска!")
+				}
+			}
+		}
+
+		student = new Student('Dmytro', 'Aleksandov', '1992', [50, 20, 10, 10, 8])
+		student1 = new Student('Djohn', 'Doe', '1990', [40, 20, 9, 10, 5])
+		student2 = new Student('Petro', 'Male', '1989', [20, 5, 10, 5, 4])
+
+		console.log(student.present()
+			.present()
+			.present()
+			.present()
+			.present()
+			.present()
+			.present()
+			.present()
+			.present()
+			.present()
+			.present()
+			.present()
+			.present() 
+			.present() 
+			.present() 
+			.present() 
+			.present() 
+			.present() 
+			.present() 
+			.present()
+			.present()
+			.present()
+			.present() 
+			.present()
+			.present()
+			.present())
+
+		console.log(student1.present()
+			.present()
+			.present()
+			.absent()
+			.present()
+			.present()
+			.present()
+			.absent()
+			.absent()
+			.absent()
+			.present()
+			.present()
+			.present() 
+			.present() 
+			.absent()
+			.present() 
+			.present() 
+			.present() 
+			.present() 
+			.present() 
+			.present()
+			.present()
+			.present()
+			.present()
+			.present()
+			.present())
+
+
+		console.log(student2.present()
+			.absent()
+			.present()
+			.absent()
+			.absent()
+			.absent()
+			.present()
+			.absent()
+			.absent()
+			.absent()
+			.absent()
+			.absent()
+			.absent()
+			.absent() 
+			.absent() 
+			.absent() 
+			.absent() 
+			.absent()
+			.absent() 
+			.absent()
+			.present()
+			.present()
+			.present()
+			.present()
+			.present()
+			.present())
+		
+
+		student.summary()
+		student1.summary()
+		student2.summary()
+
+		//як зробити перевірки на 25 відвідувань?
+		//Чи потрібно вказувати точну кількість елем. в масиві або ж можна зробити
+		//if(this.visit.length < 25)......
+		//якщо вказати new Array(25) тоді відлік починається з 25 індексу
+		// visit = new Array(25)	
+	</script>
+</body>
+</html>			
