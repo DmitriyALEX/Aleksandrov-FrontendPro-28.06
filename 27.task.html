@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		h1 {
+			margin: 0;
+			padding: 0;
+			font-size: 50px;
+		}
+		.textarea_focus {
+			display: flex;
+			flex-direction: row;
+		}
+		.textarea_element {
+			width: 100px;
+			height: 100px;
+			cursor: pointer;
+		} 
+		h2 {
+			margin: 0;
+			padding: 0;
+			font-size: 40px;
+		}
+		.hover {
+			display: flex;
+			flex-direction: row;
+		}
+		.title_hover {
+			color:red;
+			font-size: 32px;
+		}
+		.text_hover {
+			font-size: 32px;
+		}
+		.divElement_hover {
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+			cursor: pointer;
+		}
+		.divElement_hover:hover{	 
+			background-color: green;
+		} 
+		.title_toggle {
+			color:red;
+			font-size: 32px;
+		} 
+		.toggle {
+			display: flex;
+			flex-direction: row;
+		}
+		.text_toggle {
+			font-size: 32px;
+			cursor: pointer;
+		}
+		.divElement_toggle.open {
+			display: block;
+			width: 100px;
+			height: 100px;
+			background-color: green; 
+		} 
+		.focus {
+			display: flex;
+			flex-direction: row;
+		}
+		.title_focus {
+			color:red;
+			font-size: 32px;
+		}
+		.text_focus {
+			cursor: pointer;
+			font-size: 32px;
+		}
+		.text_focus:focus {
+			cursor: pointer;
+			font-size: 32px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<h1>Text area</h1>
+	<p >put your focus into textarea</p>
+	<div class="textarea_focus">
+		<textarea class="textarea_element" id="textarea_element"></textarea>
+		<div class="text_area_div" id="text_area_div"></div>
+	</div>
+
+	<hr>
+
+	<h2>Some solutions:</h2>
+	<div class="hover">
+		<p class="title_hover">1. HOVER</p>
+		<p class="text_hover" id="text_hover"> put your cursor into red frame</p>
+		<div class="divElement_hover" id="divElement_hover"></div>
+	</div>
+	<div class="toggle">
+		<p class="title_toggle">2. TOGGLE</p>
+		<p class="text_toggle" id="text_toggle" onclick="toggleEl()"> click here to see/hide div</p>
+		<div class="divElement_toggle" id="divElement_toggle"></div>
+	</div>
+	<div class="focus"> 
+	 	<p class="title_focus">3. FOCUS</p>
+		<p class="text_focus" id="text_focus" tabindex="1"> PressTAb</p>
+		<div class="divElement_focus" id="divElement_focus"></div>
+	</div>  
+
+	<script>
+		const textarea_element =  document.getElementById("textarea_element")
+		const text_area_div =  document.getElementById("text_area_div")
+
+		textarea_element.addEventListener("focus", () => {
+			text_area_div.style.display = 'block';
+			text_area_div.style.width = '100px';
+			text_area_div.style.height = '100px';
+			text_area_div.style.backgroundColor = 'green'; 
+		})
+		textarea_element.addEventListener("blur", () => {
+			text_area_div.style.display = 'none'
+		})
+
+		const text = document.getElementById("text_toggle")
+		const divEl = document.getElementById("divElement_toggle")
+		function toggleEl() {
+			divEl.classList.toggle('open')
+		}
+	</script>
+</body>
+</html>
