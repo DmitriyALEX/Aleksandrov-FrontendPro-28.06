@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		const arr = [16,-37,54,-4,72,-56,47,4, -16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47]
+
+	// 1. Знайти суму та кількість позитивних елементів.
+		let arrPositive = []
+		for(i=0; i<arr.length; i++) {
+			if( arr[i] > 0) {
+				arrPositive.push(arr[i])
+			}
+		}
+		const sum = arrPositive.reduce((a, b) => a + b, 0)
+		console.log("1.//", "summery count", sum) //438
+		console.log("1.//", "total count", arrPositive.length) //14
+
+	//2. Знайти мінімальний елемент масиву та його порядковий номер.
+		const min = Math.min(...arr)
+		const indexMin = arr.indexOf(min)
+		console.log("2.//", "index of min value", indexMin) //15
+		console.log("2.//", "min value", min) //-63
+
+	// 3. Знайти максимальний елемент масиву та його порядковий номер.
+		const max = Math.max(...arr)
+		const indexMax = arr.indexOf(max)
+		console.log("3.//", "index of max value", indexMax) // 18
+		console.log("3.//", "max value", max)  // 76
+
+	//4. Визначити кількість негативних елементів.
+		let arrNegative = [] 
+		for (i=0; i<arr.length; i++) {
+			if(arr[i] < 0) {
+				arrNegative.push(arr[i])
+			}
+		}
+		console.log("4.//", "total count", arrNegative.length) //10
+
+	//5. Знайти кількість непарних позитивних елементів.
+		// [16, 54, 72, 47, 4, 25, 46, 4, 27, 4, 76, 12, 4, 47]
+		let unpairedPositive = []
+			for(i=0; i<arrPositive.length; i++) {
+		 		if(arrPositive[i] % 2 !== 0 ) {
+		 			unpairedPositive.push(arrPositive[i])
+		 	}
+		}
+		console.log("5.//", "count Unpaired positive", unpairedPositive.length) //4
+
+	// 6.Знайти кількість парних позитивних елементів.
+		let pairedPositive = [] 
+		for(i=0; i<arrPositive.length; i++) {
+			if(arrPositive[i] % 2 === 0) {
+				pairedPositive.push(arrPositive[i])
+			}
+		}
+		console.log("6.//", "count Paired positive", pairedPositive.length) //10
+
+	//7. Знайти суму парних позитивних елементів.
+		const pairedSumArrPositive = pairedPositive.reduce((a, b) => a + b, 0)
+		console.log("7.//", "Summary Paired Positive Items", pairedSumArrPositive) // 292
+
+	//8. Знайти суму непарних позитивних елементів.
+	    const unpairedSumArrPositive = unpairedPositive.reduce((a, b) => a + b, 0)
+	    console.log("8.//", "Summary UNPaired Positive Items",unpairedSumArrPositive) // 146
+
+	//9. Знайти добуток позитивних елементів.
+	    const multiplyArrPositive = arrPositive.reduce((a, b) => a * b)
+	    console.log("9.//", "multiply Positive", multiplyArrPositive) //996181249307443200
+
+	//10. Знайти найбільший серед елементів масиву, остальні обнулити. 
+
+	// Чи правильно я зробив згідно умови задачі ? 
+	    const maxEl = Math.max(...arr)
+	    let arrNull = []
+	    for(i=0; i<arr.length; i++) { 
+	    	if(arr[i] !== maxEl) {
+	    		arrNull.push(0)
+	    	} else arrNull.push(maxEl)
+	    }			
+	 	console.log(arrNull) // [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 76, 0, 0, 0, 0, 0] 
+	</script>
+</body>
+</html>

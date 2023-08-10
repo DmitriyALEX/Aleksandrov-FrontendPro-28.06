@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		class SuperMath {
+			constructor(obj) {
+				this.X = obj.X
+				this.Y = obj.Y
+				this.znak = obj.znak
+			}
+			check() {	
+				const ask = confirm(`Чи хочете ви зробити дію ${this.znak} з ${this.X} і ${this.Y}?`)
+				if(ask === true) {
+					alert(this[this.znak]()); 
+				// в this.znak передається метод ("+"() "-"() "*"() "%"()) згідно з тим який 
+				// переданий в obj з p = new SuperMath({X: 12, Y: 3, znak: "/"})
+				} else (this.input()) 
+				if((isNaN(this.X)) || (isNaN(this.Y)) || !['+', '-', '/', '*', '%'].includes(this.znak)) {
+					alert('Введіть коректні данні')
+				} else alert(this[this.znak]()); 
+			}
+			input() {
+				this.X = +prompt("Введіть значення Х")
+				this.Y = +prompt("Введіть значення У")
+				this.znak = prompt("Введіть значення znak +, -, /, *, %") 
+			}
+			"+"() {
+				const addValue = this.X + this.Y
+      			return (`${this.X} + ${this.Y} = ${addValue}`)
+			}
+			"-"() {
+				const subValue = this.X - this.Y
+      			return (`${this.X} - ${this.Y} = ${subValue}`)
+			}
+			"/"() {
+				const divValue = this.X / this.Y
+      			return (`${this.X} / ${this.Y} = ${divValue}`)
+			}
+			"*"() {
+				const multValue = this.X * this.Y
+      			return (`${this.X} * ${this.Y} = ${multValue}`)
+			}
+			"%"() {
+				const remValue = this.X % this.Y
+      			return (`${this.X} % ${this.Y} = ${remValue}`)
+			}
+			"h"() {
+				console.log(1)
+			}	
+		}
+
+		// Так працює 
+		p = new SuperMath({X: 12, Y: 3, znak: "h"})
+		p.check()
+
+		// А так ні (хоча в умові задачі так)
+		// p = new SuperMath()
+		// p.check(obj); // --> no p.input() -> 3 prompt -> рахує
+		// console.log(p.check(obj))
+
+		// Чому так? якщо в метод передати obj --> error
+	</script>
+</body>
+</html>						

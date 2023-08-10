@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		class Human {
+			constructor(name, age) {
+				this.name = name;
+				this.age = age;
+			}
+			humanInfo() {
+				console.log(`Name: ${this.name}, Age: ${this.age}`)
+			}
+		}
+ 
+		class Car {
+			constructor(brand, model, year, number) {
+				this.brand = brand
+				this.model = model
+				this.year = year
+				this.number = number	
+			}
+			addOwner(owner) { //owner - відповідне поле та зберігання екземпляру класу Людина  
+				if(owner.age >= 18) {
+					this.owner = owner //зберігає екземпляр класу Людина у відповідному полі якщо вік більше 18 років
+				} else console.log('Ваш вік менше 18 років') 
+			}
+			carInfo() {
+				console.log(`Brand: ${this.brand}, Model: ${this.model}, Year: ${this.year}, Number: ${this.number}`)
+				if(this.owner) {
+					this.owner.humanInfo() // виводить у консоль інформацію про автомобіль та викликає метод виводу інформації класу Людина для виведення інформації про власника 
+				} else console.log('No Owner')				
+			}
+		}  
+
+		const human = new Human('Dmytro', '30')
+		const human1 = new Human('Dmytro', '10')
+		human.humanInfo() // метод, який виводить у консоль інформацію про людину.
+		human1.humanInfo()
+
+		const car = new Car('Тesla', 'model-8', '2024', '1111')
+		const car1 = new Car('Daewoo', 'lanos', '2025', '2222')
+		car.addOwner(human)  // метод для присвоєння власника 
+		car1.addOwner(human1) 
+
+		
+		car.carInfo() // метод, який виводить у консоль інформацію про автомобіль та викликає метод виводу інформації класу Людина для виведення інформації про власника
+		car1.carInfo() 
+	</script>
+</body>
+</html>

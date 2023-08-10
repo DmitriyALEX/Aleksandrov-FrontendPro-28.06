@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+// 1. Дано масив з елементами різних типів. Створити функцію яка вираховує середнє арифметичне лише 
+	//числових елементів даного масиву.
+
+	const arrDifValues = ['a', 5, false, 'b', 8, 's', true, 8, -10];
+	const arrSorted = arrDifValues.filter((b) => {
+		return ((b != true) && (b != false)) 
+	})
+
+	arrNum = []
+	for(i=0; i<arrSorted.length; i++) {
+		if((arrSorted[i] > 0) || (arrSorted[i] < 0)) {
+			arrNum.push(arrSorted[i])
+		}
+	}
+	arrSum = arrNum.reduce((a, b) => (a+b))
+	arrRes = arrSum/arrNum.length
+	console.log("1.// Summery value", arrRes)
+
+
+// 2. Написати функцію doMath(x, znak, y), яка отримує 3 аргументи: числа x і y, рядок znak. 
+	// У змінній znak може бути: +, -, *, /, %, ^ (ступінь ).
+	// Вивести результат математичної дії, вказаної в змінній znak.Обидва числа і знак виходять від користувача.
+
+	const x = Number(prompt("Enter your number"))
+	const y = Number(prompt("Enter your number"))
+	const znak =  prompt("Enter your znak: +, -, *, /, %, ^")
+
+	function doMath() {
+		if(znak === '+') {
+			return x + y
+		}
+		if(znak === '-') {
+			return x - y
+		}
+		if(znak === '*') {
+			return x * y
+		}
+		if(znak === '/') {
+			return x / y
+		}
+		if(znak === '%') {
+			return x / 100 * y
+		}
+		if(znak === '^') {
+			return x ** y
+		}
+	}
+		console.log("2.//", doMath(x, y, znak))
+
+
+// 3. Написати функцію заповнення даними користувача двомірного масиву.
+// Довжину основного масиву і внутрішніх масивів задає користувач. 
+//Значення всіх елементів всіх масивів задає користувач.
+		
+ 	const length1 = +prompt("Enter Array 1 length")
+ 	const length2 = +prompt("Enter Array 2 length")
+	let arr1 = []
+	let arr2 = []
+
+	function pushArr() {
+		for(let i = 0; i < length1; i++) {
+			arr1.push(+prompt(`Enter symbols ${i + 1}`))
+		}  
+
+		for(let i = 0; i < length2; i++) {
+			arr2.push(+prompt(`Enter symbols ${i + 1}`))
+		} 
+
+		arr1.push(arr2)
+		console.log("2.//", arr1)	
+	}
+	pushArr()
+
+// 4. Створити функцію, яка прибирає з рядка всі символи, які ми передали другим аргументом. 
+//'func(" hello world", ['l', 'd'])' поверне нам "heo wor". 
+// Вихідний рядок та символи для видалення задає користувач.
+	const stringEl = "hello world"
+	const removeValues = ['l', 'd']
+
+	function removeItems() {
+		const stringToArray = stringEl.split('')
+		const resString = stringToArray.filter(i => !removeValues.includes(i))
+			console.log("4.//", resString)
+	}
+		removeItems(stringEl, removeValues)
+	</script>
+</body>
+</html>
