@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="input">
+	<button id="button">Check</button>
+	<p id="openLink" style="color: green; cursor: pointer"></p>
+	<script type="text/javascript">
+		const button = document.getElementById("button")
+		const openLink = document.getElementById("openLink")
+
+		button.onclick = () => {
+			if(input.value.includes("http://") || input.value.includes("https://")) {
+				openLink.innerHTML = 'click here' 
+				function target() {
+					window.open(`${input.value}`)
+				}
+				openLink.addEventListener('click', target)
+			}  
+			else {
+				openLink.innerHTML = 'corrected link'
+				let correctLink = ('http://' + input.value)
+				function targetCorrected() {
+					window.open(`${correctLink}`)
+				}
+				openLink.addEventListener('click', targetCorrected)
+			}	
+		}	
+	</script>
+</body>
+</html>
