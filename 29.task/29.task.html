@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// if you want to get new random image you must reload your page
+		const img = document.createElement('img')
+		let i = Math.floor(Math.random() * (1 + 8) +1)
+		img.src= (`./images/${i}.jpg`)
+		document.body.append(img)
+	</script>
+</body>
+</html>
