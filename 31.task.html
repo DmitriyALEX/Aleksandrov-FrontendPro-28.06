@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		span {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			font-size: 50px;
+			cursor: pointer;
+		}
+		.divMain {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		const emoji = ['👩‍💻', '🍓', '😀', '🧑🏽‍💻', '🍏']
+		
+		const divMain = document.createElement("div")
+		divMain.setAttribute('class', 'divMain')
+		document.body.append(divMain)
+
+		for(i=0; i<emoji.length; i++) {
+			const spanEmoji = document.createElement("span")
+			spanEmoji.setAttribute('class', 'spanEmoji')
+			
+			spanEmoji.innerHTML = emoji[i]
+			divMain.append(spanEmoji)	
+
+			const spanLikes = document.createElement("span")
+			spanLikes.innerHTML = 0
+			spanEmoji.append(spanLikes)
+		}
+
+		divMain.onclick = function counter(event) {
+			if(event.target.tagName === "SPAN") {
+				let spanEmoji = event.target;
+				let spanLikes = spanEmoji.querySelector("span");
+				let num = Number(spanLikes.innerHTML) + 1;
+				spanLikes.innerHTML = num;
+			}
+		}
+	</script>
+</body>
+</html>
