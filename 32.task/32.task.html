@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+			display: flex;
+		}
+		.active {
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<button id="prev">Prev</button>
+	<button id="next">Next</button>
+	<script type="text/javascript">
+		const next = document.getElementById("next")
+		const prev = document.getElementById("prev")
+		const img = document.createElement('img')
+		img.setAttribute('class', 'active')
+		const images = ['./images/1.jpg', './images/2.jpg','./images/3.jpg']
+		img.src = images[0]
+		prev.after(img) 
+
+		i = 0;
+
+		const prevFunc = function() {
+			img.src = images[i]
+			if(i === 0) {
+				prev.disabled = true
+			} else i-- 
+			next.disabled = false
+		}
+		prev.addEventListener('click', prevFunc)
+		
+		const nextFunc = function() {
+			i++
+			img.src = images[i]
+			if(i === images.length - 1) {
+				next.disabled = true
+			} prev.disabled = false
+		}
+		next.addEventListener('click', nextFunc)
+	</script>
+</body>
+</html>
