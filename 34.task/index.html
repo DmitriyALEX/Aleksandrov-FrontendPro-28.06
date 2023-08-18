@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link href="./styles.css"/ rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="container">
+		<nav>
+			<ul id="categories_list">
+				<li id="sofa">Дивани</li>
+				<li id="table">Столи</li>
+			</ul>
+		</nav>
+		<div id="product">
+			<ul id="product_list"></ul>
+		</div>
+		<main id="item"></main>
+	</div>
+	<script type="text/javascript">
+		const categories = document.getElementById('categories_list')
+		const product = document.getElementById('product')
+		const product_list = document.getElementById('product_list')
+		const item = document.getElementById('item')
+
+		const tables = [
+			'./images/table/table1.jpg', 
+			'./images/table/table2.jpg', 
+			'./images/table/table3.jpg'
+			]
+
+		const sofas = [
+			'./images/sofa/sofa1.jpg', 
+			'./images/sofa/sofa2.jpg',
+			'./images/sofa/sofa3.jpg',
+			]
+
+		let values = [];
+
+		let divItem = document.createElement('div')
+		item.appendChild(divItem)
+		const imgItem = document.createElement('img')
+		divItem.appendChild(imgItem)
+
+		const button = document.createElement('button')
+		button.style.display = 'none'
+		divItem.appendChild(button)
+		button.innerHTML = 'buy'
+
+		function showProducts(values) {
+			product_list.innerHTML = ""
+			values.forEach(e => {
+				let li = document.createElement('li');
+				product_list.appendChild(li);
+				const img = document.createElement('img');
+				img.src = e;
+		 		li.appendChild(img);
+		 		img.innerHTML = e;
+
+		 		img.onclick = function showItems(img) {
+		 			item.style.display = 'block';
+		 			imgItem.src = e;
+		 			imgItem.innerHTML = e;
+		 			button.style.display = 'block';
+		 			button.onclick = function clickButton() {
+						const alertButton = alert('you buy some product')
+						if (alertButton === undefined) {
+							product_list.style.display = 'none'
+							item.style.display = 'none'
+						}
+					}	
+		 		}
+			})
+		}
+
+		categories.onclick = function clickCategory(event) {
+			let category = event.target.closest('li').id
+			if(category === "sofa") { 
+				item.style.display = 'none'
+				showProducts(sofas)
+			} else if (category === "table") {
+				product_list.classList.toggle('hidden');
+				item.style.display = 'none'
+				showProducts(tables)
+			}
+		}
+	</script>
+</body>
+</html>
