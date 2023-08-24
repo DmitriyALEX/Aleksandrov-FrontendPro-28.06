@@ -1,0 +1,29 @@
+body {
+	display: grid; 
+	grid-template-columns: 50% 50%;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+input {
+	margin-bottom: 32px;
+}
+
+select {
+	margin-bottom: 32px;
+}
+
+p {
+	margin-bottom: 0px;
+	padding-bottom: 5px;
+}
+
+.btn_submit {
+	width: 70px;
+	border: 2px solid red;
+	color: green;
+	margin-top: 10px;
+}

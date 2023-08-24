@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+	<div id="form_container">
+		<form>
+		<p>Ваше ПІБ</p>
+		<p id="check_name"></p>
+		<input type="text" id="user_name" name="user_name"/>
+		
+		<p>Виберіть ваше місто</p>
+		<select id="select_town"></select>
+
+		<p>Номер складу Нової пошти</p>
+		<p id="check_poshta"></p>
+		<input type="text" id="nova_poshta" name="nova_poshta"/>
+
+		<fieldset>
+			<p id="check_pay"></p>
+		<div>
+			<input type="radio" id="pay_after" name="pay" value="pay_after"  />
+			<label for="pay_after">Післяоплата</label>
+		</div>
+		<div>
+			<input type="radio" id="pay_bank" name="pay" value="bank" />
+			<label for="bank">Банківська картка</label>
+		</div>	
+		</fieldset>
+
+		<div>
+			<p>Вкажіть Кількість</p>
+			<button id="sub_button">-</button>
+				<input type="hidden" id="res_input" name="res_input"></input>
+				<span id="res_sum">1</span>
+			<button id="add_button">+</button>
+		</div>
+
+		<div>
+			<p>Додайде коментар до замовлення</p>
+			<textarea></textarea>
+		</div>
+		
+		<button type="submit" class="btn_submit">
+			Submit
+		</button>
+	</form>	
+	</div>
+	<script src='./script.js'></script> 
+</body>
+</html>
