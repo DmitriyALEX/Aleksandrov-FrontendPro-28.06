@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<input type="number" id="input_number"/>
+	<button id="confirm_btn">Confirm</button>
+	<div id="post_block"></div>
+	<button id="coments">Coments</button>
+	<div id="coments_block"></div>
+	<script>
+		const input = document.getElementById('input_number')
+		const confirm_btn = document.getElementById('confirm_btn')
+		const post_block = document.getElementById('post_block')
+		const coments_btn = document.getElementById('coments')
+		const coments_block = document.getElementById('coments_block')
+		coments_btn.style.display ='none'
+		coments_block.style.display ='none'
+		
+		//GET VALUE FROM INPUT
+		let val_from_input = ''
+		let value_input = confirm_btn.addEventListener('click', (event) => {
+			val_from_input = input.value
+			validate()
+			fecthData(val_from_input)
+			.then(data => (inner_post(data)) || (inner_coments(data)))
+		})
+
+		//VALIDATE
+		function validate() {
+			if((val_from_input >= 100) || (val_from_input < 1) ||(val_from_input === '')) {
+				const error_div_number = document.createElement('div')
+				error_div_number.innerHTML='Введіть число менше 100'
+				input.before(error_div_number)
+				post_block.style.display ='none'
+				coments_btn.style.display ='none'
+			}
+		}
+
+		//FETCH
+		function fecthData(val_from_input) {
+			if(validate) {
+				return fetch(`https://jsonplaceholder.typicode.com/posts/${val_from_input}`)
+				.then(res => {
+				if(res.status >= 200 && res.status < 300) {
+					return res.json()
+				}
+					return Promise.reject(new Error(`error ${res.status}`))
+				})
+				.then(data => {
+						return data
+					}			
+				)
+				.catch(error => {
+					const error_div = document.createElement('div')
+					error_div.innerHTML= error
+					input.after(error_div)
+				})
+			}
+		}
+
+		//INNER POST
+		function inner_post(data) {
+			post_block.innerHTML = `
+				<p>USER ID</p>
+				<p>${data.id}</p> 
+				<br/>
+				<p>POST TITLE</p>
+				<p>${data.title}</p>
+				<br/>
+			`
+				coments_btn.style.display ='block'
+		}
+
+		//INNER COMENTS
+		function inner_coments(data) {
+			coments_block.innerHTML = `
+				<p>${data.body}</p>
+			`
+		}
+
+		coments_btn.addEventListener('click', () => {
+			coments_block.style.display ='block'
+		})
+	</script>
+</body>
+</html>
