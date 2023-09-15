@@ -1,0 +1,52 @@
+.container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.weather_app {
+	flex-direction: column;
+	display: flex;
+	align-items: center;
+}
+
+.city {
+	text-align: center;
+}
+
+.values_weather_current {
+	margin: 0;
+	padding: 0;
+}
+
+.values_weather_current ul {
+	margin: 0;
+	padding: 0;
+}
+
+.weather_values li {
+	list-style-type: none;
+	border: 2px solid black;
+	margin: 2px;
+};
+
+.weather_values li p {
+	margin: 0;
+	padding: 0;
+}
+
+.title {
+	margin: 0;
+	text-align: center;
+}
+
+.value_item {
+	color: red;
+	text-align: center;
+	margin: 0;
+}
+
+.value_item_icon {
+	text-align: center;
+}

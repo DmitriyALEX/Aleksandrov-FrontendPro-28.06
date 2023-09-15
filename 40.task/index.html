@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	 <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+	<div class="container">
+		<div class="weather_app">
+			<div class="block_select_city">
+				<select id="select_city">
+				<option value="Vinnytsia">Вінниця</option> 
+				<option value="Dnipro">Дніпро</option> 
+				<option value="Donetsk">Донецьк</option> 
+				<option value="Zhytomyr">Житомир</option>
+				<option value="Zaporizhzhia">Запоріжжя</option>
+				<option value="Ivano-Frankivsk">Івано-Франківськ</option>
+				<option value="Kyiv">Київ</option>
+				<option value="Kropyvnytskyi">Кропивницький</option>
+				<option value="Luhansk">Луганськ</option>
+				<option value="Lutsk">Луцьк</option>
+				<option value="Lviv">Львів</option>
+				<option value="Mykolaiv">Миколаїв</option>
+				<option value="Odessa">Одеса</option>
+				<option value="Poltava">Полтава</option>
+				<option value="Rivne">Рівне</option>
+				<option value="Sumy">Суми</option>
+				<option value="Ternopil">Тернопіль</option>
+				<option value="Uzhhorod">Ужгород</option>
+				<option value="Kharkiv">Харків</option> 
+				<option value="Kherson">Херсон</option> 
+				<option value="Khmelnytskyi">Хмельницький</option> 
+				<option value="Cherkasy">Черкаси</option>  
+				<option value="Chernivtsi">Чернівці</option>  
+				<option value="Chernihiv">Чернігів</option>  </select>
+			</div>
+	
+			<div class="values_weather_current" id="values_weather_current">
+				<ul class="weather_values">
+					<p id="city" class="city"></p>
+					<li>
+						<p class="title">Температура</p>
+						<p class="value_item" id="temp"></p>
+					</li>
+					<li>
+						<p class="title">Тиск</p>
+						<p class="value_item" id="pressure"></p>
+					</li>
+					<li>
+						<p class="title">Опис</p> 
+						<p class="value_item" id="description"></p>
+					</li> 
+					<li>
+						<p class="title">Вологість</p> 
+						<p class="value_item" id="humidity"></p>
+					</li>
+					<li>
+						<p class="title">Швидкість вітру</p> 
+						<p class="value_item" id="speed"></p>
+					</li>
+					<li>
+						<p class="title">Напрям у градусах</p> 
+						<p class="value_item" id="deg"></p>
+					</li>
+					<li class="value_item_icon">
+						<img id="icon" alt="icon" />
+					</li>
+				</ul>
+			</div>	
+		</div>
+	</div>
+	<script src="./scripts.js"></script>
+</body>
+</html>		
