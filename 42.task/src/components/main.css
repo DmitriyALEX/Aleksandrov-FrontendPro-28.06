@@ -1,0 +1,9 @@
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+.icon {
+    height: 50px;
+    width: 50px;
+}
