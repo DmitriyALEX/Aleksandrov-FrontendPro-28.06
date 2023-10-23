@@ -28,7 +28,8 @@ export const TodoList = () => {
     } 
 
     function isChecked(value) {
-        return value.target.checked
+         return setChecked(value.target.checked)
+        
     } 
 
     return (
